@@ -13,14 +13,14 @@ export default defineConfig(({ mode }) => ({
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
-  base: mode === 'production' ? '/Nexus-20AI-20App-20Creator/' : '/',
+  base: mode === "production" ? "/Nexus-20AI-20App-20Creator/" : "/",
   build: {
     outDir: "dist/spa",
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'index.html')
-      }
-    }
+        main: path.resolve(__dirname, "index.html"),
+      },
+    },
   },
   plugins: [react(), expressPlugin()],
   resolve: {
