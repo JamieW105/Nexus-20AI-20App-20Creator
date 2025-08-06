@@ -28,7 +28,10 @@ const App = () => (
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/builder/:projectId?" element={<Builder />} />
-            <Route path="/users/:userId/projects/preview/:previewId" element={<Builder />} />
+            <Route
+              path="/users/:userId/projects/preview/:previewId"
+              element={<Builder />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

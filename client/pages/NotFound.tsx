@@ -15,7 +15,7 @@ export default function NotFound() {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
+              animationDuration: `${3 + Math.random() * 4}s`,
             }}
           />
         ))}
@@ -34,12 +34,10 @@ export default function NotFound() {
           </div>
 
           {/* Error Message */}
-          <h1 className="text-3xl font-bold text-glow mb-4">
-            Page Not Found
-          </h1>
+          <h1 className="text-3xl font-bold text-glow mb-4">Page Not Found</h1>
           <p className="text-cosmic-white/70 text-lg mb-8 leading-relaxed">
-            Looks like this page got lost in the cosmic void. 
-            The page you're looking for doesn't exist or has been moved to another dimension.
+            Looks like this page got lost in the cosmic void. The page you're
+            looking for doesn't exist or has been moved to another dimension.
           </p>
 
           {/* Action Buttons */}
@@ -50,8 +48,8 @@ export default function NotFound() {
                 Go Home
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={() => window.history.back()}
               className="border-cosmic-purple text-cosmic-white hover:bg-cosmic-purple/20"
             >

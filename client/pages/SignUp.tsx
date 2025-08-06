@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { 
-  Code, 
-  Mail, 
-  Lock, 
+import {
+  Code,
+  Mail,
+  Lock,
   User,
-  Github, 
+  Github,
   Chrome,
   ArrowLeft,
   Eye,
   EyeOff,
-  Check
+  Check,
 } from "lucide-react";
 
 export default function SignUp() {
@@ -21,16 +21,16 @@ export default function SignUp() {
     name: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -38,7 +38,10 @@ export default function SignUp() {
     { met: formData.password.length >= 8, text: "At least 8 characters" },
     { met: /[A-Z]/.test(formData.password), text: "One uppercase letter" },
     { met: /[0-9]/.test(formData.password), text: "One number" },
-    { met: /[^A-Za-z0-9]/.test(formData.password), text: "One special character" }
+    {
+      met: /[^A-Za-z0-9]/.test(formData.password),
+      text: "One special character",
+    },
   ];
 
   return (
@@ -53,15 +56,15 @@ export default function SignUp() {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
+              animationDuration: `${3 + Math.random() * 4}s`,
             }}
           />
         ))}
       </div>
 
       {/* Back button */}
-      <Link 
-        to="/" 
+      <Link
+        to="/"
         className="absolute top-8 left-8 z-20 glass rounded-full p-3 cosmic-hover group"
       >
         <ArrowLeft className="w-5 h-5 text-cosmic-white group-hover:text-cosmic-cyan transition-colors" />
@@ -77,21 +80,23 @@ export default function SignUp() {
                 <Code className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h1 className="text-3xl font-bold text-glow mb-2">Create Account</h1>
+            <h1 className="text-3xl font-bold text-glow mb-2">
+              Create Account
+            </h1>
             <p className="text-cosmic-white/70">Start building with AI today</p>
           </div>
 
           {/* OAuth Buttons */}
           <div className="space-y-3 mb-6">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="w-full h-12 glass border-cosmic-purple/30 hover:border-cosmic-purple/50 hover:bg-cosmic-purple/10 text-cosmic-white"
             >
               <Github className="w-5 h-5 mr-3" />
               Continue with GitHub
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="w-full h-12 glass border-cosmic-purple/30 hover:border-cosmic-purple/50 hover:bg-cosmic-purple/10 text-cosmic-white"
             >
               <Chrome className="w-5 h-5 mr-3" />
@@ -105,14 +110,18 @@ export default function SignUp() {
               <div className="w-full border-t border-cosmic-purple/30"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-cosmic-slate text-cosmic-white/70">Or create with email</span>
+              <span className="px-4 bg-cosmic-slate text-cosmic-white/70">
+                Or create with email
+              </span>
             </div>
           </div>
 
           {/* Sign Up Form */}
           <form className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-cosmic-white/90">Full Name</Label>
+              <Label htmlFor="name" className="text-cosmic-white/90">
+                Full Name
+              </Label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cosmic-white/50" />
                 <Input
@@ -128,7 +137,9 @@ export default function SignUp() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-cosmic-white/90">Email</Label>
+              <Label htmlFor="email" className="text-cosmic-white/90">
+                Email
+              </Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cosmic-white/50" />
                 <Input
@@ -144,7 +155,9 @@ export default function SignUp() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-cosmic-white/90">Password</Label>
+              <Label htmlFor="password" className="text-cosmic-white/90">
+                Password
+              </Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cosmic-white/50" />
                 <Input
@@ -161,21 +174,34 @@ export default function SignUp() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-cosmic-white/50 hover:text-cosmic-white transition-colors"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
-              
+
               {/* Password Requirements */}
               {formData.password && (
                 <div className="space-y-1 mt-2">
                   {passwordRequirements.map((req, index) => (
-                    <div key={index} className="flex items-center space-x-2 text-xs">
-                      <div className={`w-3 h-3 rounded-full flex items-center justify-center ${
-                        req.met ? 'bg-green-500' : 'bg-cosmic-white/20'
-                      }`}>
+                    <div
+                      key={index}
+                      className="flex items-center space-x-2 text-xs"
+                    >
+                      <div
+                        className={`w-3 h-3 rounded-full flex items-center justify-center ${
+                          req.met ? "bg-green-500" : "bg-cosmic-white/20"
+                        }`}
+                      >
                         {req.met && <Check className="w-2 h-2 text-white" />}
                       </div>
-                      <span className={req.met ? 'text-green-400' : 'text-cosmic-white/50'}>
+                      <span
+                        className={
+                          req.met ? "text-green-400" : "text-cosmic-white/50"
+                        }
+                      >
                         {req.text}
                       </span>
                     </div>
@@ -185,7 +211,9 @@ export default function SignUp() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-cosmic-white/90">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-cosmic-white/90">
+                Confirm Password
+              </Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cosmic-white/50" />
                 <Input
@@ -202,38 +230,56 @@ export default function SignUp() {
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-cosmic-white/50 hover:text-cosmic-white transition-colors"
                 >
-                  {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showConfirmPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
-              {formData.confirmPassword && formData.password !== formData.confirmPassword && (
-                <p className="text-red-400 text-xs">Passwords don't match</p>
-              )}
+              {formData.confirmPassword &&
+                formData.password !== formData.confirmPassword && (
+                  <p className="text-red-400 text-xs">Passwords don't match</p>
+                )}
             </div>
 
             <div className="flex items-start space-x-2">
-              <input 
-                type="checkbox" 
-                id="terms" 
+              <input
+                type="checkbox"
+                id="terms"
                 checked={acceptTerms}
                 onChange={(e) => setAcceptTerms(e.target.checked)}
                 className="mt-1 rounded border-cosmic-purple/30 bg-transparent text-cosmic-purple focus:ring-cosmic-purple/50"
               />
-              <Label htmlFor="terms" className="text-sm text-cosmic-white/70 leading-relaxed">
+              <Label
+                htmlFor="terms"
+                className="text-sm text-cosmic-white/70 leading-relaxed"
+              >
                 I agree to the{" "}
-                <a href="#" className="text-cosmic-cyan hover:text-cosmic-lavender transition-colors">
+                <a
+                  href="#"
+                  className="text-cosmic-cyan hover:text-cosmic-lavender transition-colors"
+                >
                   Terms of Service
                 </a>{" "}
                 and{" "}
-                <a href="#" className="text-cosmic-cyan hover:text-cosmic-lavender transition-colors">
+                <a
+                  href="#"
+                  className="text-cosmic-cyan hover:text-cosmic-lavender transition-colors"
+                >
                   Privacy Policy
                 </a>
               </Label>
             </div>
 
             <Link to="/dashboard">
-              <Button 
+              <Button
                 className="w-full h-12 gradient-cosmic hover:gradient-cosmic-hover glow-purple text-lg font-semibold"
-                disabled={!acceptTerms || formData.password !== formData.confirmPassword || !passwordRequirements.every(req => req.met)}
+                disabled={
+                  !acceptTerms ||
+                  formData.password !== formData.confirmPassword ||
+                  !passwordRequirements.every((req) => req.met)
+                }
               >
                 Create Account
               </Button>
@@ -244,7 +290,10 @@ export default function SignUp() {
           <div className="text-center mt-8">
             <p className="text-cosmic-white/70">
               Already have an account?{" "}
-              <Link to="/signin" className="text-cosmic-cyan hover:text-cosmic-lavender transition-colors font-medium">
+              <Link
+                to="/signin"
+                className="text-cosmic-cyan hover:text-cosmic-lavender transition-colors font-medium"
+              >
                 Sign in
               </Link>
             </p>

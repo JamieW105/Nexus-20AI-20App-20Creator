@@ -72,7 +72,7 @@ export default {
           "purple-medium": "rgba(123, 44, 191, 0.2)",
           "blue-light": "rgba(60, 9, 108, 0.1)",
           "blue-medium": "rgba(60, 9, 108, 0.2)",
-          "dark": "rgba(26, 26, 46, 0.8)",
+          dark: "rgba(26, 26, 46, 0.8)",
         },
       },
       borderRadius: {
@@ -115,7 +115,7 @@ export default {
             opacity: "0.8",
           },
         },
-        "float": {
+        float: {
           "0%, 100%": {
             transform: "translateY(0px)",
           },
@@ -153,37 +153,37 @@ export default {
   },
   plugins: [
     require("tailwindcss-animate"),
-    function({ addUtilities }) {
+    function ({ addUtilities }) {
       const newUtilities = {
-        '.glass': {
-          background: 'rgba(33, 33, 58, 0.1)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(123, 44, 191, 0.2)',
+        ".glass": {
+          background: "rgba(33, 33, 58, 0.1)",
+          backdropFilter: "blur(10px)",
+          border: "1px solid rgba(123, 44, 191, 0.2)",
         },
-        '.glass-purple': {
-          background: 'rgba(123, 44, 191, 0.1)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(123, 44, 191, 0.3)',
+        ".glass-purple": {
+          background: "rgba(123, 44, 191, 0.1)",
+          backdropFilter: "blur(10px)",
+          border: "1px solid rgba(123, 44, 191, 0.3)",
         },
-        '.glass-blue': {
-          background: 'rgba(60, 9, 108, 0.1)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(60, 9, 108, 0.3)',
+        ".glass-blue": {
+          background: "rgba(60, 9, 108, 0.1)",
+          backdropFilter: "blur(10px)",
+          border: "1px solid rgba(60, 9, 108, 0.3)",
         },
-        '.text-glow': {
-          textShadow: '0 0 10px rgba(123, 44, 191, 0.8)',
+        ".text-glow": {
+          textShadow: "0 0 10px rgba(123, 44, 191, 0.8)",
         },
-        '.text-glow-cyan': {
-          textShadow: '0 0 10px rgba(0, 255, 255, 0.8)',
+        ".text-glow-cyan": {
+          textShadow: "0 0 10px rgba(0, 255, 255, 0.8)",
         },
-        '.gradient-cosmic': {
-          background: 'linear-gradient(135deg, #7B2CBF 0%, #3C096C 100%)',
+        ".gradient-cosmic": {
+          background: "linear-gradient(135deg, #7B2CBF 0%, #3C096C 100%)",
         },
-        '.gradient-cosmic-hover': {
-          background: 'linear-gradient(135deg, #9D4EDD 0%, #5A189A 100%)',
+        ".gradient-cosmic-hover": {
+          background: "linear-gradient(135deg, #9D4EDD 0%, #5A189A 100%)",
         },
-      }
-      addUtilities(newUtilities)
-    }
+      };
+      addUtilities(newUtilities);
+    },
   ],
 } satisfies Config;

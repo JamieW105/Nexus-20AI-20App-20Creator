@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { 
-  Code, 
-  Mail, 
-  Lock, 
-  Github, 
+import {
+  Code,
+  Mail,
+  Lock,
+  Github,
   Chrome,
   ArrowLeft,
   Eye,
-  EyeOff
+  EyeOff,
 } from "lucide-react";
 
 export default function SignIn() {
@@ -31,15 +31,15 @@ export default function SignIn() {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
+              animationDuration: `${3 + Math.random() * 4}s`,
             }}
           />
         ))}
       </div>
 
       {/* Back button */}
-      <Link 
-        to="/" 
+      <Link
+        to="/"
         className="absolute top-8 left-8 z-20 glass rounded-full p-3 cosmic-hover group"
       >
         <ArrowLeft className="w-5 h-5 text-cosmic-white group-hover:text-cosmic-cyan transition-colors" />
@@ -56,20 +56,22 @@ export default function SignIn() {
               </div>
             </div>
             <h1 className="text-3xl font-bold text-glow mb-2">Welcome Back</h1>
-            <p className="text-cosmic-white/70">Sign in to continue building with AI</p>
+            <p className="text-cosmic-white/70">
+              Sign in to continue building with AI
+            </p>
           </div>
 
           {/* OAuth Buttons */}
           <div className="space-y-3 mb-6">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="w-full h-12 glass border-cosmic-purple/30 hover:border-cosmic-purple/50 hover:bg-cosmic-purple/10 text-cosmic-white"
             >
               <Github className="w-5 h-5 mr-3" />
               Continue with GitHub
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="w-full h-12 glass border-cosmic-purple/30 hover:border-cosmic-purple/50 hover:bg-cosmic-purple/10 text-cosmic-white"
             >
               <Chrome className="w-5 h-5 mr-3" />
@@ -83,14 +85,18 @@ export default function SignIn() {
               <div className="w-full border-t border-cosmic-purple/30"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-cosmic-slate text-cosmic-white/70">Or continue with email</span>
+              <span className="px-4 bg-cosmic-slate text-cosmic-white/70">
+                Or continue with email
+              </span>
             </div>
           </div>
 
           {/* Email/Password Form */}
           <form className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-cosmic-white/90">Email</Label>
+              <Label htmlFor="email" className="text-cosmic-white/90">
+                Email
+              </Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cosmic-white/50" />
                 <Input
@@ -105,7 +111,9 @@ export default function SignIn() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-cosmic-white/90">Password</Label>
+              <Label htmlFor="password" className="text-cosmic-white/90">
+                Password
+              </Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cosmic-white/50" />
                 <Input
@@ -121,23 +129,33 @@ export default function SignIn() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-cosmic-white/50 hover:text-cosmic-white transition-colors"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
             </div>
 
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <input 
-                  type="checkbox" 
-                  id="remember" 
+                <input
+                  type="checkbox"
+                  id="remember"
                   className="rounded border-cosmic-purple/30 bg-transparent text-cosmic-purple focus:ring-cosmic-purple/50"
                 />
-                <Label htmlFor="remember" className="text-sm text-cosmic-white/70">
+                <Label
+                  htmlFor="remember"
+                  className="text-sm text-cosmic-white/70"
+                >
                   Remember me
                 </Label>
               </div>
-              <a href="#" className="text-sm text-cosmic-cyan hover:text-cosmic-lavender transition-colors">
+              <a
+                href="#"
+                className="text-sm text-cosmic-cyan hover:text-cosmic-lavender transition-colors"
+              >
                 Forgot password?
               </a>
             </div>
@@ -153,7 +171,10 @@ export default function SignIn() {
           <div className="text-center mt-8">
             <p className="text-cosmic-white/70">
               Don't have an account?{" "}
-              <Link to="/signup" className="text-cosmic-cyan hover:text-cosmic-lavender transition-colors font-medium">
+              <Link
+                to="/signup"
+                className="text-cosmic-cyan hover:text-cosmic-lavender transition-colors font-medium"
+              >
                 Sign up
               </Link>
             </p>

@@ -2,16 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { 
-  Code, 
-  Sparkles, 
-  Zap, 
-  Globe, 
-  Palette, 
+import {
+  Code,
+  Sparkles,
+  Zap,
+  Globe,
+  Palette,
   Bot,
   Github,
   Chrome,
-  Smartphone
+  Smartphone,
 } from "lucide-react";
 
 export default function LandingPage() {
@@ -21,33 +21,39 @@ export default function LandingPage() {
     {
       icon: <Bot className="w-8 h-8" />,
       title: "AI-Powered Generation",
-      description: "Generate full-stack web apps with natural language prompts using DeepSeek, Gemini, Claude, and Grok."
+      description:
+        "Generate full-stack web apps with natural language prompts using DeepSeek, Gemini, Claude, and Grok.",
     },
     {
       icon: <Code className="w-8 h-8" />,
       title: "Live Code Editor",
-      description: "Monaco-powered editor with syntax highlighting, auto-completion, and real-time collaboration."
+      description:
+        "Monaco-powered editor with syntax highlighting, auto-completion, and real-time collaboration.",
     },
     {
       icon: <Globe className="w-8 h-8" />,
       title: "Instant Preview",
-      description: "See your changes in real-time with our live preview engine and one-click deployment."
+      description:
+        "See your changes in real-time with our live preview engine and one-click deployment.",
     },
     {
       icon: <Palette className="w-8 h-8" />,
       title: "Visual Design Tools",
-      description: "Click-to-edit interface with AI-assisted design generation and component libraries."
+      description:
+        "Click-to-edit interface with AI-assisted design generation and component libraries.",
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Lightning Fast",
-      description: "Built for speed with hot reloading, instant saves, and optimized build processes."
+      description:
+        "Built for speed with hot reloading, instant saves, and optimized build processes.",
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
       title: "Smart Integrations",
-      description: "Connect with GitHub, Vercel, Supabase, and more with one-click integrations."
-    }
+      description:
+        "Connect with GitHub, Vercel, Supabase, and more with one-click integrations.",
+    },
   ];
 
   const techStack = [
@@ -56,7 +62,7 @@ export default function LandingPage() {
     { name: "TypeScript", icon: "📘" },
     { name: "Tailwind", icon: "🎨" },
     { name: "Node.js", icon: "💚" },
-    { name: "Vercel", icon: "🔺" }
+    { name: "Vercel", icon: "🔺" },
   ];
 
   return (
@@ -73,7 +79,7 @@ export default function LandingPage() {
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 20}s`,
-                animationDuration: `${20 + Math.random() * 10}s`
+                animationDuration: `${20 + Math.random() * 10}s`,
               }}
             />
           ))}
@@ -89,22 +95,34 @@ export default function LandingPage() {
             </div>
             <span className="text-xl font-bold text-glow">AI Builder</span>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-cosmic-white/80 hover:text-cosmic-white transition-colors">
+            <a
+              href="#features"
+              className="text-cosmic-white/80 hover:text-cosmic-white transition-colors"
+            >
               Features
             </a>
-            <a href="#integrations" className="text-cosmic-white/80 hover:text-cosmic-white transition-colors">
+            <a
+              href="#integrations"
+              className="text-cosmic-white/80 hover:text-cosmic-white transition-colors"
+            >
               Integrations
             </a>
-            <a href="#pricing" className="text-cosmic-white/80 hover:text-cosmic-white transition-colors">
+            <a
+              href="#pricing"
+              className="text-cosmic-white/80 hover:text-cosmic-white transition-colors"
+            >
               Pricing
             </a>
           </div>
 
           <div className="flex items-center space-x-4">
             <Link to="/signin">
-              <Button variant="ghost" className="text-cosmic-white hover:bg-cosmic-purple/20 glow-purple">
+              <Button
+                variant="ghost"
+                className="text-cosmic-white hover:bg-cosmic-purple/20 glow-purple"
+              >
                 Sign In
               </Button>
             </Link>
@@ -127,10 +145,10 @@ export default function LandingPage() {
                 Instantly.
               </span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-cosmic-white/80 mb-12 leading-relaxed">
-              The next-generation AI-powered web development platform. 
-              Create, edit, and deploy full-stack applications with natural language.
+              The next-generation AI-powered web development platform. Create,
+              edit, and deploy full-stack applications with natural language.
             </p>
 
             {/* Prompt Input */}
@@ -178,7 +196,8 @@ export default function LandingPage() {
               Powerful Features
             </h2>
             <p className="text-xl text-cosmic-white/80 max-w-2xl mx-auto">
-              Everything you need to build modern web applications, powered by cutting-edge AI technology.
+              Everything you need to build modern web applications, powered by
+              cutting-edge AI technology.
             </p>
           </div>
 
@@ -212,16 +231,33 @@ export default function LandingPage() {
               Seamless Integrations
             </h2>
             <p className="text-xl text-cosmic-white/80 max-w-2xl mx-auto">
-              Connect with your favorite tools and services with one-click integrations.
+              Connect with your favorite tools and services with one-click
+              integrations.
             </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { name: "GitHub", icon: <Github className="w-8 h-8" />, desc: "Version control & collaboration" },
-              { name: "Vercel", icon: <Globe className="w-8 h-8" />, desc: "Instant deployment" },
-              { name: "Supabase", icon: <Zap className="w-8 h-8" />, desc: "Backend & database" },
-              { name: "Chrome", icon: <Chrome className="w-8 h-8" />, desc: "Browser testing" }
+              {
+                name: "GitHub",
+                icon: <Github className="w-8 h-8" />,
+                desc: "Version control & collaboration",
+              },
+              {
+                name: "Vercel",
+                icon: <Globe className="w-8 h-8" />,
+                desc: "Instant deployment",
+              },
+              {
+                name: "Supabase",
+                icon: <Zap className="w-8 h-8" />,
+                desc: "Backend & database",
+              },
+              {
+                name: "Chrome",
+                icon: <Chrome className="w-8 h-8" />,
+                desc: "Browser testing",
+              },
             ].map((integration, index) => (
               <div
                 key={integration.name}
@@ -251,16 +287,24 @@ export default function LandingPage() {
               Ready to Build the Future?
             </h2>
             <p className="text-xl text-cosmic-white/80 mb-8 max-w-2xl mx-auto">
-              Join thousands of developers building next-generation applications with AI.
+              Join thousands of developers building next-generation applications
+              with AI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/signup">
-                <Button size="lg" className="gradient-cosmic hover:gradient-cosmic-hover glow-purple px-8">
+                <Button
+                  size="lg"
+                  className="gradient-cosmic hover:gradient-cosmic-hover glow-purple px-8"
+                >
                   Start Building Free
                 </Button>
               </Link>
               <Link to="/signin">
-                <Button size="lg" variant="outline" className="border-cosmic-purple text-cosmic-white hover:bg-cosmic-purple/20">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-cosmic-purple text-cosmic-white hover:bg-cosmic-purple/20"
+                >
                   View Demo
                 </Button>
               </Link>
@@ -284,27 +328,32 @@ export default function LandingPage() {
                 The next-generation AI-powered web development platform.
               </p>
             </div>
-            
+
             {[
               {
                 title: "Product",
-                links: ["Features", "Pricing", "Integrations", "Documentation"]
+                links: ["Features", "Pricing", "Integrations", "Documentation"],
               },
               {
-                title: "Company", 
-                links: ["About", "Blog", "Careers", "Contact"]
+                title: "Company",
+                links: ["About", "Blog", "Careers", "Contact"],
               },
               {
                 title: "Resources",
-                links: ["Help Center", "Community", "Tutorials", "API Docs"]
-              }
+                links: ["Help Center", "Community", "Tutorials", "API Docs"],
+              },
             ].map((column) => (
               <div key={column.title}>
-                <h3 className="font-semibold text-cosmic-white mb-4">{column.title}</h3>
+                <h3 className="font-semibold text-cosmic-white mb-4">
+                  {column.title}
+                </h3>
                 <ul className="space-y-2">
                   {column.links.map((link) => (
                     <li key={link}>
-                      <a href="#" className="text-cosmic-white/60 hover:text-cosmic-white text-sm transition-colors">
+                      <a
+                        href="#"
+                        className="text-cosmic-white/60 hover:text-cosmic-white text-sm transition-colors"
+                      >
                         {link}
                       </a>
                     </li>
@@ -313,7 +362,7 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
-          
+
           <div className="border-t border-cosmic-purple/20 mt-12 pt-8 text-center">
             <p className="text-cosmic-white/60 text-sm">
               © 2024 AI Builder. All rights reserved.

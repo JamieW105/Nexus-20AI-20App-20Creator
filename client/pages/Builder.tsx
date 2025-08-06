@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { 
+import {
   Code,
   Eye,
   MessageSquare,
@@ -27,12 +27,14 @@ import {
   Monitor,
   Smartphone,
   Globe,
-  Share
+  Share,
 } from "lucide-react";
 
 export default function Builder() {
   const { projectId } = useParams();
-  const [currentView, setCurrentView] = useState<"editor" | "preview">("editor");
+  const [currentView, setCurrentView] = useState<"editor" | "preview">(
+    "editor",
+  );
   const [selectedFile, setSelectedFile] = useState<string>("app.tsx");
   const [editorContent, setEditorContent] = useState(`import React from 'react';
 
@@ -59,9 +61,10 @@ export default App;`);
     {
       id: 1,
       type: "ai" as const,
-      content: "Hello! I'm your AI assistant. I can help you build, edit, and improve your web application. What would you like to work on?",
-      timestamp: new Date()
-    }
+      content:
+        "Hello! I'm your AI assistant. I can help you build, edit, and improve your web application. What would you like to work on?",
+      timestamp: new Date(),
+    },
   ]);
   const [chatInput, setChatInput] = useState("");
   const [selectedAIModel, setSelectedAIModel] = useState("claude");
@@ -80,37 +83,48 @@ export default App;`);
           name: "components",
           type: "folder" as const,
           children: [
-            { name: "Header.tsx", type: "file" as const, language: "typescript" },
-            { name: "Footer.tsx", type: "file" as const, language: "typescript" }
-          ]
-        }
-      ]
+            {
+              name: "Header.tsx",
+              type: "file" as const,
+              language: "typescript",
+            },
+            {
+              name: "Footer.tsx",
+              type: "file" as const,
+              language: "typescript",
+            },
+          ],
+        },
+      ],
     },
     { name: "package.json", type: "file" as const, language: "json" },
-    { name: "README.md", type: "file" as const, language: "markdown" }
+    { name: "README.md", type: "file" as const, language: "markdown" },
   ];
 
   const aiModels = [
     { id: "claude", name: "Claude", color: "text-orange-400" },
     { id: "deepseek", name: "DeepSeek", color: "text-blue-400" },
     { id: "gemini", name: "Gemini", color: "text-green-400" },
-    { id: "grok", name: "Grok", color: "text-purple-400" }
+    { id: "grok", name: "Grok", color: "text-purple-400" },
   ];
 
   const toggleFolder = (folderName: string) => {
-    setExpandedFolders(prev => 
-      prev.includes(folderName) 
-        ? prev.filter(name => name !== folderName)
-        : [...prev, folderName]
+    setExpandedFolders((prev) =>
+      prev.includes(folderName)
+        ? prev.filter((name) => name !== folderName)
+        : [...prev, folderName],
     );
   };
 
   const renderFileTree = (items: any[], level = 0) => {
     return items.map((item, index) => (
-      <div key={`${item.name}-${level}-${index}`} style={{ paddingLeft: `${level * 16}px` }}>
+      <div
+        key={`${item.name}-${level}-${index}`}
+        style={{ paddingLeft: `${level * 16}px` }}
+      >
         {item.type === "folder" ? (
           <div>
-            <div 
+            <div
               className="flex items-center space-x-2 py-1 px-2 hover:bg-cosmic-purple/20 rounded cursor-pointer group"
               onClick={() => toggleFolder(item.name)}
             >
@@ -127,15 +141,15 @@ export default App;`);
               <span className="text-cosmic-white/90 text-sm">{item.name}</span>
             </div>
             {expandedFolders.includes(item.name) && item.children && (
-              <div>
-                {renderFileTree(item.children, level + 1)}
-              </div>
+              <div>{renderFileTree(item.children, level + 1)}</div>
             )}
           </div>
         ) : (
-          <div 
+          <div
             className={`flex items-center space-x-2 py-1 px-2 hover:bg-cosmic-purple/20 rounded cursor-pointer group ${
-              selectedFile === item.name ? 'bg-cosmic-purple/30 border-l-2 border-cosmic-purple' : ''
+              selectedFile === item.name
+                ? "bg-cosmic-purple/30 border-l-2 border-cosmic-purple"
+                : ""
             }`}
             onClick={() => setSelectedFile(item.name)}
           >
@@ -162,10 +176,10 @@ export default App;`);
       id: chatMessages.length + 1,
       type: "user" as const,
       content: chatInput,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
-    setChatMessages(prev => [...prev, newMessage]);
+    setChatMessages((prev) => [...prev, newMessage]);
     setChatInput("");
 
     // Simulate AI response
@@ -174,9 +188,9 @@ export default App;`);
         id: chatMessages.length + 2,
         type: "ai" as const,
         content: `I understand you want to: "${chatInput}". Let me help you with that. I can modify your code, add new features, or provide suggestions. Would you like me to implement this change directly in your ${selectedFile} file?`,
-        timestamp: new Date()
+        timestamp: new Date(),
       };
-      setChatMessages(prev => [...prev, aiResponse]);
+      setChatMessages((prev) => [...prev, aiResponse]);
     }, 1000);
   };
 
@@ -194,7 +208,9 @@ export default App;`);
               <div className="w-6 h-6 bg-gradient-cosmic rounded flex items-center justify-center">
                 <Code className="w-4 h-4 text-white" />
               </div>
-              <span className="font-semibold text-cosmic-white">AI Builder</span>
+              <span className="font-semibold text-cosmic-white">
+                AI Builder
+              </span>
             </Link>
             <div className="h-4 w-px bg-cosmic-purple/30"></div>
             <span className="text-cosmic-white/70 text-sm">
@@ -203,15 +219,26 @@ export default App;`);
           </div>
 
           <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="sm" className="text-cosmic-white hover:bg-cosmic-purple/20">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-cosmic-white hover:bg-cosmic-purple/20"
+            >
               <Save className="w-4 h-4 mr-2" />
               Save
             </Button>
-            <Button variant="ghost" size="sm" className="text-cosmic-white hover:bg-cosmic-purple/20">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-cosmic-white hover:bg-cosmic-purple/20"
+            >
               <Download className="w-4 h-4 mr-2" />
               Export
             </Button>
-            <Button size="sm" className="gradient-cosmic hover:gradient-cosmic-hover">
+            <Button
+              size="sm"
+              className="gradient-cosmic hover:gradient-cosmic-hover"
+            >
               <Share className="w-4 h-4 mr-2" />
               Deploy
             </Button>
@@ -226,7 +253,11 @@ export default App;`);
           <div className="p-4 border-b border-cosmic-purple/20">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-cosmic-white font-semibold">Explorer</h3>
-              <Button variant="ghost" size="icon" className="h-6 w-6 text-cosmic-white/70 hover:text-cosmic-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-6 w-6 text-cosmic-white/70 hover:text-cosmic-white"
+              >
                 <Plus className="w-4 h-4" />
               </Button>
             </div>
@@ -275,12 +306,21 @@ export default App;`);
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center space-x-2">
                     <FileText className="w-4 h-4 text-cosmic-cyan" />
-                    <span className="text-cosmic-white font-medium">{selectedFile}</span>
+                    <span className="text-cosmic-white font-medium">
+                      {selectedFile}
+                    </span>
                   </div>
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full" title="Unsaved changes"></div>
+                  <div
+                    className="w-2 h-2 bg-yellow-400 rounded-full"
+                    title="Unsaved changes"
+                  ></div>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Button variant="ghost" size="sm" className="text-cosmic-white/70 hover:text-cosmic-white">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-cosmic-white/70 hover:text-cosmic-white"
+                  >
                     <Download className="w-4 h-4" />
                   </Button>
                 </div>
@@ -295,7 +335,10 @@ export default App;`);
                   style={{ minHeight: "100%" }}
                 />
                 <div className="absolute top-4 right-4 glass rounded-lg p-2">
-                  <Button size="sm" className="gradient-cosmic hover:gradient-cosmic-hover">
+                  <Button
+                    size="sm"
+                    className="gradient-cosmic hover:gradient-cosmic-hover"
+                  >
                     <Zap className="w-4 h-4 mr-2" />
                     Ask AI
                   </Button>
@@ -309,18 +352,32 @@ export default App;`);
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center space-x-2">
                     <Globe className="w-4 h-4 text-cosmic-cyan" />
-                    <span className="text-cosmic-white font-medium">Live Preview</span>
+                    <span className="text-cosmic-white font-medium">
+                      Live Preview
+                    </span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <Button variant="ghost" size="icon" className="h-8 w-8 text-cosmic-white/70 hover:text-cosmic-white">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8 text-cosmic-white/70 hover:text-cosmic-white"
+                    >
                       <Monitor className="w-4 h-4" />
                     </Button>
-                    <Button variant="ghost" size="icon" className="h-8 w-8 text-cosmic-white/70 hover:text-cosmic-white">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8 text-cosmic-white/70 hover:text-cosmic-white"
+                    >
                       <Smartphone className="w-4 h-4" />
                     </Button>
                   </div>
                 </div>
-                <Button variant="ghost" size="sm" className="text-cosmic-white/70 hover:text-cosmic-white">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-cosmic-white/70 hover:text-cosmic-white"
+                >
                   <Play className="w-4 h-4 mr-2" />
                   Refresh
                 </Button>
@@ -357,7 +414,11 @@ export default App;`);
                 <Bot className="w-5 h-5 mr-2 text-cosmic-cyan" />
                 AI Assistant
               </h3>
-              <Button variant="ghost" size="icon" className="h-6 w-6 text-cosmic-white/70 hover:text-cosmic-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-6 w-6 text-cosmic-white/70 hover:text-cosmic-white"
+              >
                 <Settings className="w-4 h-4" />
               </Button>
             </div>
@@ -398,7 +459,10 @@ export default App;`);
                     {message.content}
                   </div>
                   <div className="text-xs opacity-70 mt-1">
-                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    {message.timestamp.toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
                   </div>
                 </div>
               </div>
@@ -410,7 +474,11 @@ export default App;`);
           <div className="p-4 border-t border-cosmic-purple/20">
             <div className="glass rounded-2xl p-3">
               <div className="flex items-end space-x-2">
-                <Button variant="ghost" size="icon" className="h-8 w-8 text-cosmic-white/70 hover:text-cosmic-white">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-8 w-8 text-cosmic-white/70 hover:text-cosmic-white"
+                >
                   <Paperclip className="w-4 h-4" />
                 </Button>
                 <Textarea
@@ -425,8 +493,8 @@ export default App;`);
                   }}
                   className="flex-1 min-h-[2.5rem] max-h-32 bg-transparent border-none text-cosmic-white placeholder-cosmic-white/50 resize-none focus:ring-0"
                 />
-                <Button 
-                  size="icon" 
+                <Button
+                  size="icon"
                   className="h-8 w-8 gradient-cosmic hover:gradient-cosmic-hover"
                   onClick={sendMessage}
                   disabled={!chatInput.trim()}
